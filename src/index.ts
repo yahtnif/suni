@@ -3,7 +3,7 @@ import { hashsum } from './Hash'
 import { shuffle } from './Array'
 import { digit, lower, upper, alphabet, urlSafeString } from './String'
 
-export default {
+export {
   alphabet,
   digit,
   hashsum,
