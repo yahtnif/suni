@@ -19,75 +19,75 @@ npm install suni
 ### string
 
 ```js
-import { lower, upper, alphabet, digit } from 'suni'
+import { Str } from 'suni'
 
-console.log(lower)
+console.log(Str.digit)
+// 0123456789
+
+console.log(Str.lower)
 // abcdefghijklmnopqrstuvwxyz
 
-console.log(upper)
+console.log(Str.upper)
 // ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
-console.log(alphabet)
+console.log(Str.alphabet)
 // alphabet
-
-console.log(digit)
-// 0123456789
 ```
 
 ### hashsum
 
 ```js
-import { hashsum } from 'suni'
+import { Hash } from 'suni'
 
-console.log(hashsum(''))
+console.log(Hash.sum(''))
 // bba68bf6
 
-console.log(hashsum('null'))
+console.log(Hash.sum('null'))
 // 2d27667d
 
-console.log(hashsum('false'))
+console.log(Hash.sum('false'))
 // 774b96ed
 
-console.log(hashsum('true'))
+console.log(Hash.sum('true'))
 // 2d2a1684
 
-console.log(hashsum('0'))
+console.log(Hash.sum('0'))
 // 8daa1a0c
 
-console.log(hashsum('1'))
+console.log(Hash.sum('1'))
 // 8daa1a0a
 
-console.log(hashsum('void 0'))
+console.log(Hash.sum('void 0'))
 // e38f07cc
 
-console.log(hashsum('undefined'))
+console.log(Hash.sum('undefined'))
 // 6037ea1a
 
-console.log(hashsum(null))
+console.log(Hash.sum(null))
 // 9b7df12e
 
-console.log(hashsum(false))
+console.log(Hash.sum(false))
 // 3c206f76
 
-console.log(hashsum(true))
+console.log(Hash.sum(true))
 // 01e34ba8
 
-console.log(hashsum(0))
+console.log(Hash.sum(0))
 // 1a96284a
 
-console.log(hashsum(1))
+console.log(Hash.sum(1))
 // 1a96284b
 
-console.log(hashsum(undefined))
+console.log(Hash.sum(undefined))
 // 29172c1a
 
-console.log(hashsum({}))
+console.log(Hash.sum({}))
 // 4505230f
 
-console.log(hashsum({ a: {}, b: {} }))
+console.log(Hash.sum({ a: {}, b: {} }))
 // 3718c6e8
 
-console.log(hashsum([]))
+console.log(Hash.sum([]))
 // 5d844489
 ```
 
@@ -148,11 +148,11 @@ console.log(random.array(['a', 'b', 'c']))
 ### array
 
 ```js
-import { shuffle } from 'suni'
+import { Arr } from 'suni'
 
 const arr = [1, 2, 3, 4, 5]
 
-shuffle(arr)
+Arr.shuffle(arr)
 
 console.log(arr)
 // [4, 3, 1, 5, 2]

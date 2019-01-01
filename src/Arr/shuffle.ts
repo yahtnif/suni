@@ -1,5 +1,5 @@
 // https://stackoverflow.com/a/6274398
-export function shuffle(array: any[]): any[] {
+export default function(array: any[]): any[] {
   let counter: number = array.length
 
   // While there are elements in the array

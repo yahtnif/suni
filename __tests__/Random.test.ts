@@ -1,5 +1,5 @@
 import Random from '../src/Random'
-import { lower } from '../src/String'
+import Str from '../src/Str'
 
 const random = new Random()
 const uniRandom = new Random({
@@ -69,7 +69,7 @@ describe('Random', () => {
   })
 
   it('arrary', () => {
-    const arr = lower.split('')
+    const arr = Str.lower.split('')
     let prev: string
 
     for (let i = 0; i < TEST_TIMES; i++) {

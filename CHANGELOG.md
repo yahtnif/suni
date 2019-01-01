@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [0.2.0](https://github.com/yahtnif/suni/releases/tag/v0.2.0) - 2019-01-02
+
+### Changed
+
+- Refactor: change module structure
 - Update export
 
 ## [0.1.0](https://github.com/yahtnif/suni/releases/tag/v0.1.0) - 2019-01-01

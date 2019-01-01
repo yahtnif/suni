@@ -2,19 +2,12 @@
  * Fork: [cb87fc3](https://github.com/sindresorhus/park-miller/blob/master/index.js)
  */
 
-import { digit, lower, upper, alphabet, urlSafeString } from './String'
+import { EmptyObject } from '../interfaces/common'
+import { Option } from '../interfaces/Random'
+import Str from '../Str'
 
 const MAX_INT32: number = 2147483647
 const MINSTD: number = 16807
-
-interface EmptyObject {
-  [key: string]: number | string
-}
-
-interface Option {
-  seed?: number
-  unique?: boolean
-}
 
 export default class Random {
   private seed: number
@@ -117,25 +110,25 @@ export default class Random {
     }
 
     if (typeof str !== 'string') {
-      str = urlSafeString
+      str = Str.urlSafeString
     }
     return this.generate(str, size)
   }
 
   lower(size?: number): string {
-    return this.generate(lower, size)
+    return this.generate(Str.lower, size)
   }
 
   upper(size?: number): string {
-    return this.generate(upper, size)
+    return this.generate(Str.upper, size)
   }
 
   alphabet(size?: number): string {
-    return this.generate(alphabet, size)
+    return this.generate(Str.alphabet, size)
   }
 
   digit(size?: number): string {
-    return this.generate(digit, size)
+    return this.generate(Str.digit, size)
   }
 
   array(arr: any[]): any {

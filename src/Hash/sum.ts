@@ -61,6 +61,6 @@ function toString(o: any) {
 }
 
 // Fork: [550a7d2](https://github.com/bevacqua/hash-sum/blob/master/hash-sum.js)
-export function hashsum(o: any): string {
+export default function(o: any): string {
   return pad(foldValue(0, o, '', []).toString(16), 8)
 }
