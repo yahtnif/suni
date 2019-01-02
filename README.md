@@ -1,10 +1,9 @@
 # Suni
 
 [![npm](https://badgen.net/npm/v/suni)](https://www.npmjs.com/package/suni)
-[![gzip size](https://img.badgesize.io/https://cdn.jsdelivr.net/npm/suni/dist/suni.min.js?compression=gzip)](https://cdn.jsdelivr.net/npm/suni/dist/suni.min.js)
+[![gzip size](https://img.badgesize.io/https://cdn.jsdelivr.net/npm/suni/dist/suni.js?compression=gzip)](https://cdn.jsdelivr.net/npm/suni/dist/suni.js)
 [![install size](https://badgen.net/packagephobia/install/suni)](https://packagephobia.now.sh/result?p=suni)
-[![downloads](https://badgen.net/npm/dt/suni)](https://www.npmjs.com/package/suni)
-[![Build Status](https://travis-ci.org/yahtnif/suni.svg?branch=master)](https://trbanneravis-ci.org/yahtnif/suni)
+[![Build Status](https://travis-ci.org/yahtnif/suni.svg?branch=master)](https://travis-ci.org/yahtnif/suni)
 
 ## Install
 
