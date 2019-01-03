@@ -6,4 +6,12 @@ describe('Array', () => {
 
     expect(Arr.shuffle(arr).length).toBe(5)
   })
+
+  it('create', () => {
+    expect(Arr.create(5)).toEqual([0, 1, 2, 3, 4])
+
+    expect(Arr.create(5, 10)).toEqual([10, 11, 12, 13, 14])
+
+    expect(Arr.create(5, (i: number) => i + 10)).toEqual([10, 11, 12, 13, 14])
+  })
 })

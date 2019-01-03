@@ -159,6 +159,15 @@ Arr.shuffle(arr)
 
 console.log(arr)
 // [4, 3, 1, 5, 2]
+
+console.log(Arr.create(5))
+// [0, 1, 2, 3, 4]
+
+console.log(Arr.create(5, 10))
+// [10, 11, 12, 13, 14]
+
+console.log(Arr.create(5, i => i + 10))
+// [10, 11, 12, 13, 14]
 ```
 
 ## License
