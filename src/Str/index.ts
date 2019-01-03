@@ -1,13 +1,13 @@
 const digit: string = '0123456789'
 
-const lower: string = 'abcdefghijklmnopqrstuvwxyz'
-
 const upper: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-const alphabet: string = `${lower}${upper}`
+const lower: string = 'abcdefghijklmnopqrstuvwxyz'
 
-const urlSafeString: string = `${digit}_${lower}-${upper}`
+const alphabet: string = `${upper}${lower}`
 
-const Str = { digit, lower, upper, alphabet, urlSafeString }
+const url: string = `${digit}_${upper}-${lower}`
+
+const Str = { digit, lower, upper, alphabet, url }
 
 export default Str

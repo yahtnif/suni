@@ -23,14 +23,18 @@ import { Str } from 'suni'
 console.log(Str.digit)
 // 0123456789
 
-console.log(Str.lower)
-// abcdefghijklmnopqrstuvwxyz
-
 console.log(Str.upper)
 // ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
+console.log(Str.lower)
+// abcdefghijklmnopqrstuvwxyz
+
 console.log(Str.alphabet)
-// alphabet
+// ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+
+// url safe string
+console.log(Str.url)
+// 0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz
 ```
 
 ### hashsum

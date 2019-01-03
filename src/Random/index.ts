@@ -110,7 +110,7 @@ export default class Random {
     }
 
     if (typeof str !== 'string') {
-      str = Str.urlSafeString
+      str = Str.url
     }
     return this.generate(str, size)
   }
