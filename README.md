@@ -20,21 +20,16 @@ npm install suni
 ```js
 import { Str } from 'suni'
 
-console.log(Str.digit)
-// 0123456789
+console.log(Str.digit) // 0123456789
 
-console.log(Str.upper)
-// ABCDEFGHIJKLMNOPQRSTUVWXYZ
+console.log(Str.upper) // ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
-console.log(Str.lower)
-// abcdefghijklmnopqrstuvwxyz
+console.log(Str.lower) // abcdefghijklmnopqrstuvwxyz
 
-console.log(Str.alphabet)
-// ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+console.log(Str.alphabet) // ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 
 // url safe string
-console.log(Str.url)
-// 0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz
+console.log(Str.url) // 0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz
 ```
 
 ### hashsum
@@ -42,56 +37,23 @@ console.log(Str.url)
 ```js
 import { Hash } from 'suni'
 
-console.log(Hash.sum(''))
-// bba68bf6
+console.log(Hash.sum('')) // bba68bf6
 
-console.log(Hash.sum('null'))
-// 2d27667d
+console.log(Hash.sum('string')) // ed36c8f2
 
-console.log(Hash.sum('false'))
-// 774b96ed
+console.log(Hash.sum({ a: {}, b: {} })) // 3718c6e8
 
-console.log(Hash.sum('true'))
-// 2d2a1684
+// Calculate the (hex-encoded) MD5 hash of a given string value:
+const hash = Hash.md5('value') // "2063c1608d6e0baf80249c42e2be5804"
 
-console.log(Hash.sum('0'))
-// 8daa1a0c
+// Calculate the (hex-encoded) HMAC-MD5 hash of a given string value and key:
+const hash = Hash.md5('value', 'key') // "01433efd5f16327ea4b31144572c67f6"
 
-console.log(Hash.sum('1'))
-// 8daa1a0a
+// Calculate the raw MD5 hash of a given string value:
+const hash = Hash.md5('value', null, true)
 
-console.log(Hash.sum('void 0'))
-// e38f07cc
-
-console.log(Hash.sum('undefined'))
-// 6037ea1a
-
-console.log(Hash.sum(null))
-// 9b7df12e
-
-console.log(Hash.sum(false))
-// 3c206f76
-
-console.log(Hash.sum(true))
-// 01e34ba8
-
-console.log(Hash.sum(0))
-// 1a96284a
-
-console.log(Hash.sum(1))
-// 1a96284b
-
-console.log(Hash.sum(undefined))
-// 29172c1a
-
-console.log(Hash.sum({}))
-// 4505230f
-
-console.log(Hash.sum({ a: {}, b: {} }))
-// 3718c6e8
-
-console.log(Hash.sum([]))
-// 5d844489
+// Calculate the raw HMAC-MD5 hash of a given string value and key:
+const hash = Hash.md5('value', 'key', true)
 ```
 
 ### Random
@@ -106,46 +68,33 @@ const random = new Random({
 })
 
 // generate a url safe string
-console.log(random.string())
-// Mo7Lp23PNkW-J_jwzzTH2hEg2XuQSE3
+console.log(random.string()) // Mo7Lp23PNkW-J_jwzzTH2hEg2XuQSE3
 
-console.log(random.int())
-// 141279642
+console.log(random.int()) // 141279642
 
 // 100 ~ 2147483647
-console.log(random.int(100))
-// 1517513188
+console.log(random.int(100)) // 1517513188
 
 // 1 ~ 100
-console.log(random.int(1, 100))
-// 62
+console.log(random.int(1, 100)) // 62
 
-console.log(random.float())
-// 0.4130089482413688
+console.log(random.float()) // 0.4130089482413688
 
-console.log(random.float(100))
-// 947894369.301629
+console.log(random.float(100)) // 947894369.301629
 
-console.log(random.float(1, 100))
-// 57.521107099038645
+console.log(random.float(1, 100)) // 57.521107099038645
 
-console.log(random.lower())
-// nebsfcpkqrszwka
+console.log(random.lower()) // nebsfcpkqrszwka
 
-console.log(random.lower(8))
-// xgwjbvwf
+console.log(random.lower(8)) // xgwjbvwf
 
-console.log(random.upper(8))
-// EBEZNDYK
+console.log(random.upper(8)) // EBEZNDYK
 
-console.log(random.alphabet(8))
-// IcFqJKIZ
+console.log(random.alphabet(8)) // IcFqJKIZ
 
-console.log(random.digit(8))
-// 58441778
+console.log(random.digit(8)) // 58441778
 
-console.log(random.array(['a', 'b', 'c']))
-// c
+console.log(random.array(['a', 'b', 'c'])) // c
 ```
 
 ### array
@@ -157,17 +106,13 @@ const arr = [1, 2, 3, 4, 5]
 
 Arr.shuffle(arr)
 
-console.log(arr)
-// [4, 3, 1, 5, 2]
+console.log(arr) // [4, 3, 1, 5, 2]
 
-console.log(Arr.create(5))
-// [0, 1, 2, 3, 4]
+console.log(Arr.create(5)) // [0, 1, 2, 3, 4]
 
-console.log(Arr.create(5, 10))
-// [10, 11, 12, 13, 14]
+console.log(Arr.create(5, 10)) // [10, 11, 12, 13, 14]
 
-console.log(Arr.create(5, i => i + 10))
-// [10, 11, 12, 13, 14]
+console.log(Arr.create(5, i => i + 10)) // [10, 11, 12, 13, 14]
 ```
 
 ## License

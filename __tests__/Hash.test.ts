@@ -1,6 +1,11 @@
 import Hash from '../src/Hash'
 
 describe('Hash', () => {
+  it('hash md5', () => {
+    expect(Hash.md5('value')).toEqual('2063c1608d6e0baf80249c42e2be5804')
+    expect(Hash.md5('value', 'key')).toEqual('01433efd5f16327ea4b31144572c67f6')
+  })
+
   it('hash sum', () => {
     expect(Hash.sum('')).toEqual('bba68bf6')
     expect(Hash.sum('null')).toEqual('2d27667d')
