@@ -1,4 +1,4 @@
-import Hash from '../src/Hash'
+import { Hash } from '../src'
 
 describe('Hash', () => {
   it('hash md5', () => {

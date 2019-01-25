@@ -1,3 +1,7 @@
+/**
+ *  Fork: [550a7d2](https://github.com/bevacqua/hash-sum/blob/master/hash-sum.js)
+ */
+
 function pad(hash: string, len: number): string {
   while (hash.length < len) {
     hash = '0' + hash
@@ -60,7 +64,6 @@ function toString(o: any) {
   return Object.prototype.toString.call(o)
 }
 
-// Fork: [550a7d2](https://github.com/bevacqua/hash-sum/blob/master/hash-sum.js)
 export default function(o: any): string {
   return pad(foldValue(0, o, '', []).toString(16), 8)
 }

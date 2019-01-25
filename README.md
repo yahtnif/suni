@@ -5,6 +5,17 @@
 [![install size](https://badgen.net/packagephobia/install/suni)](https://packagephobia.now.sh/result?p=suni)
 [![Build Status](https://travis-ci.org/yahtnif/suni.svg?branch=master)](https://travis-ci.org/yahtnif/suni)
 
+## Table of contents
+
+- [Install](#install)
+- [Usage](#usage)
+  - [Str](#str)
+  - [Hash](#hash)
+  - [Random](#random)
+  - [Wrandom](#wrandom)
+  - [Arr](#arr)
+- [License](#license)
+
 ## Install
 
 ```sh
@@ -15,7 +26,7 @@ npm install suni
 
 ## Usage
 
-### string
+### Str
 
 ```js
 import { Str } from 'suni'
@@ -32,7 +43,7 @@ console.log(Str.alphabet) // ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxy
 console.log(Str.url) // 0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz
 ```
 
-### hashsum
+### Hash
 
 ```js
 import { Hash } from 'suni'
@@ -97,7 +108,44 @@ console.log(random.digit(8)) // 58441778
 console.log(random.array(['a', 'b', 'c'])) // c
 ```
 
-### array
+### Wrandom
+
+Produce a random integer based on weights. Weights should add up to 1.
+
+```js
+import { Wandom } from 'suni'
+
+const weights = [0.2, 0.5, 0.3]
+console.log(Wandom(weights)) // random index of weights
+
+const items = [
+  {
+    anyValue: 0.1,
+    weight: 0.2
+  },
+  {
+    anyValue: 0.7,
+    weight: 0.5
+  },
+  {
+    anyValue: 0.2,
+    weight: 0.3
+  }
+]
+
+console.log(Wandom(items)) // random item of items
+console.log(Wandom(items, item => item.anyValue)) // random item of items, passing a callback function to get weight
+
+const obj = {
+  key1: 0.3,
+  key2: 0.5,
+  key3: 0.2
+}
+
+console.log(Wandom(obj)) // random key of obj
+```
+
+### Arr
 
 ```js
 import { Arr } from 'suni'

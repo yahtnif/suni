@@ -1,4 +1,4 @@
-import Arr from '../src/Arr'
+import { Arr } from '../src'
 
 describe('Array', () => {
   it('shuffle', () => {

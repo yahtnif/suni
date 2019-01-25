@@ -1,5 +1,5 @@
-import Random from '../src/Random'
-import Str from '../src/Str'
+import { Random } from '../src'
+import { Str } from '../src'
 
 const random = new Random()
 const uniRandom = new Random({
