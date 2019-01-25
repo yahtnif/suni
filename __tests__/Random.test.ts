@@ -69,7 +69,7 @@ describe('Random', () => {
   })
 
   it('arrary', () => {
-    const arr = Str.lower.split('')
+    const arr = Str.lowercase.split('')
     let prev: string
 
     for (let i = 0; i < TEST_TIMES; i++) {

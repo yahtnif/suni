@@ -33,9 +33,9 @@ import { Str } from 'suni'
 
 console.log(Str.digit) // 0123456789
 
-console.log(Str.upper) // ABCDEFGHIJKLMNOPQRSTUVWXYZ
+console.log(Str.uppercase) // ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
-console.log(Str.lower) // abcdefghijklmnopqrstuvwxyz
+console.log(Str.lowercase) // abcdefghijklmnopqrstuvwxyz
 
 console.log(Str.alphabet) // ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 
@@ -95,11 +95,11 @@ console.log(random.float(100)) // 947894369.301629
 
 console.log(random.float(1, 100)) // 57.521107099038645
 
-console.log(random.lower()) // nebsfcpkqrszwka
+console.log(random.lowercase()) // nebsfcpkqrszwka
 
-console.log(random.lower(8)) // xgwjbvwf
+console.log(random.lowercase(8)) // xgwjbvwf
 
-console.log(random.upper(8)) // EBEZNDYK
+console.log(random.uppercase(8)) // EBEZNDYK
 
 console.log(random.alphabet(8)) // IcFqJKIZ
 

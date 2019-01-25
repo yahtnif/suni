@@ -116,11 +116,11 @@ export default class Random {
   }
 
   lower(size?: number): string {
-    return this.generate(Str.lower, size)
+    return this.generate(Str.lowercase, size)
   }
 
   upper(size?: number): string {
-    return this.generate(Str.upper, size)
+    return this.generate(Str.uppercase, size)
   }
 
   alphabet(size?: number): string {
