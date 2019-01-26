@@ -116,16 +116,16 @@ console.log(random.array(['a', 'b', 'c'])) // c
 
 ### Wrandom
 
-Produce a random integer based on weights.
+Produce a random based on weights.
 
 ```js
-import { Wandom } from 'suni'
+import { Wrandom } from 'suni'
 
 const weights = [0.2, 0.5, 0.3]
-console.log(Wandom(weights)) // random index of weights
+console.log(Wrandom(weights)) // random index of weights
 
 const weightsNotAddTo1 = [0.2, 0.3] // auto reweight to [0.4, 0.6]
-console.log(Wandom(weightsNotAddTo1)) // random index of weights
+console.log(Wrandom(weightsNotAddTo1)) // random index of weights
 
 const items = [
   {
@@ -142,8 +142,8 @@ const items = [
   }
 ]
 
-console.log(Wandom(items)) // random item of items
-console.log(Wandom(items, item => item.anyValue)) // random item of items, passing a callback function to get weight
+console.log(Wrandom(items)) // random item of items
+console.log(Wrandom(items, item => item.anyValue)) // random item of items, passing a callback function to get weight
 
 const obj = {
   key1: 0.3,
@@ -151,7 +151,7 @@ const obj = {
   key3: 0.2
 }
 
-console.log(Wandom(obj)) // random key of obj
+console.log(Wrandom(obj)) // random key of obj
 ```
 
 ### Arr
