@@ -43,6 +43,13 @@ console.log(Str.alphabet) // ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxy
 
 // url safe string
 console.log(Str.url) // 0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz
+
+// pad / padLeft
+console.log(Str.pad('7', 3, '0')) // 007
+console.log(Str.padLeft('7', 3, '0')) // 007
+
+// padRight
+console.log(Str.padRight('1', 4, '0')) // 1000
 ```
 
 ### Hash
