@@ -28,6 +28,8 @@ npm install suni
 
 ### Str
 
+digit, uppercase, lowercase, alphabet, url safe string.
+
 ```js
 import { Str } from 'suni'
 
@@ -44,6 +46,8 @@ console.log(Str.url) // 0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqr
 ```
 
 ### Hash
+
+sum, md5
 
 ```js
 import { Hash } from 'suni'
@@ -68,6 +72,8 @@ const hash = Hash.md5('value', 'key', true)
 ```
 
 ### Random
+
+Pseudorandom generator: number / string / array item .
 
 ```js
 import { Random } from 'suni'
@@ -110,13 +116,16 @@ console.log(random.array(['a', 'b', 'c'])) // c
 
 ### Wrandom
 
-Produce a random integer based on weights. Weights should add up to 1.
+Produce a random integer based on weights.
 
 ```js
 import { Wandom } from 'suni'
 
 const weights = [0.2, 0.5, 0.3]
 console.log(Wandom(weights)) // random index of weights
+
+const weightsNotAddTo1 = [0.2, 0.3] // auto reweight to [0.4, 0.6]
+console.log(Wandom(weightsNotAddTo1)) // random index of weights
 
 const items = [
   {
@@ -146,6 +155,8 @@ console.log(Wandom(obj)) // random key of obj
 ```
 
 ### Arr
+
+shuffle, create
 
 ```js
 import { Arr } from 'suni'

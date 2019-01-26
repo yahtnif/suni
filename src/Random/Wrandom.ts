@@ -19,10 +19,10 @@ export default function Wrandom(data: any, cb?: Function): any {
     returnCb = (i: number): any => entries[i][0]
   }
 
+  const ratio = 1 / weights.reduce((a: number, b: number): number => a + b)
+
   for (let i = 0; i < weights.length; i++) {
-    acc += weights[i]
+    acc += weights[i] * ratio
     if (ran < acc) return returnCb(i)
   }
-
-  throw new Error('Weights should add up to 1')
 }
