@@ -2,9 +2,13 @@ import shuffle from './shuffle'
 
 const Arr = {
   shuffle,
-  create(n: number, cb?: number | Function): any[] {
+  create(n: number, start?: number | Function): any[] {
     return Array.from(new Array(n), (v, i) =>
-      cb ? (typeof cb === 'number' ? i + cb : cb(i)) : i
+      typeof start !== 'undefined'
+        ? typeof start === 'number'
+          ? i + start
+          : start(i + 1)
+        : i + 1
     )
   }
 }

@@ -8,10 +8,12 @@ describe('Arr', () => {
   })
 
   it('create', () => {
-    expect(Arr.create(5)).toEqual([0, 1, 2, 3, 4])
+    expect(Arr.create(5)).toEqual([1, 2, 3, 4, 5])
 
     expect(Arr.create(5, 10)).toEqual([10, 11, 12, 13, 14])
 
-    expect(Arr.create(5, (i: number) => i + 10)).toEqual([10, 11, 12, 13, 14])
+    expect(Arr.create(5, 0)).toEqual([0, 1, 2, 3, 4])
+
+    expect(Arr.create(5, (i: number) => i - 1)).toEqual([0, 1, 2, 3, 4])
   })
 })

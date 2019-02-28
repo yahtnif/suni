@@ -30,7 +30,7 @@ npm install suni
 
 ### Arr
 
-shuffle, create
+shuffle, create.
 
 ```js
 const { Arr } = require('suni')
@@ -41,16 +41,20 @@ Arr.shuffle(arr)
 
 console.log(arr) // [4, 3, 1, 5, 2]
 
-Arr.create(5) // [0, 1, 2, 3, 4]
+// value starting from 1
+Arr.create(5) // [1, 2, 3, 4, 5]
 
+// specify a starting value
 Arr.create(5, 10) // [10, 11, 12, 13, 14]
+Arr.create(5, 0) // [0, 1, 2, 3, 4]
 
-Arr.create(5, i => i + 10) // [10, 11, 12, 13, 14]
+// pass a function
+Arr.create(5, i => i - 1) // [0, 1, 2, 3, 4]
 ```
 
 ### Hash
 
-sum, md5
+sum, md5.
 
 ```js
 const { Hash } = require('suni')
