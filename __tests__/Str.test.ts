@@ -9,4 +9,8 @@ describe('Str', () => {
   it('padRight', () => {
     expect(Str.padRight('1', 4, '0')).toEqual('1000')
   })
+
+  it('replaceAll', () => {
+    expect(Str.replaceAll('rEplacEAll', 'E', 'e')).toEqual('replaceAll')
+  })
 })

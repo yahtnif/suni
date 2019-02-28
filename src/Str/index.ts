@@ -1,32 +1,15 @@
-const digit: string = '0123456789'
+import { padLeft, padRight } from './pad'
+import { digit, lowercase, uppercase, alphabet, url } from './string'
 
-const uppercase: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-
-const lowercase: string = 'abcdefghijklmnopqrstuvwxyz'
-
-const alphabet: string = `${uppercase}${lowercase}`
-
-const url: string = `${digit}_${uppercase}-${lowercase}`
-
-function padLeft(str: string, num?: number, ch: string = ' ') {
-  str = str.toString()
-
-  if (typeof num === 'undefined') {
-    return str
-  }
-
-  if (ch !== ' ') {
-    ch = ch.toString()
-  }
-
-  return ch.repeat(num - str.length) + str
+function replaceAll(
+  target: string,
+  search: string,
+  replacement: string
+): string {
+  return target.replace(new RegExp(search, 'g'), replacement)
 }
 
-function padRight(str: string, num: number, ch: string = ' ') {
-  return str + ch.repeat(num - str.length)
-}
-
-const Str = {
+export default {
   digit,
   lowercase,
   uppercase,
@@ -34,7 +17,6 @@ const Str = {
   url,
   pad: padLeft,
   padLeft,
-  padRight
+  padRight,
+  replaceAll
 }
-
-export default Str

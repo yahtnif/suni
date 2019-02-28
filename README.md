@@ -9,11 +9,11 @@
 
 - [Install](#install)
 - [Usage](#usage)
-  - [Str](#str)
+  - [Arr](#arr)
   - [Hash](#hash)
   - [Random](#random)
+  - [Str](#str)
   - [Wrandom](#wrandom)
-  - [Arr](#arr)
 - [License](#license)
 
 ## Install
@@ -26,30 +26,24 @@ npm install suni
 
 ## Usage
 
-### Str
+### Arr
 
-digit, uppercase, lowercase, alphabet, url safe string.
+shuffle, create
 
 ```js
-import { Str } from 'suni'
+import { Arr } from 'suni'
 
-console.log(Str.digit) // 0123456789
+const arr = [1, 2, 3, 4, 5]
 
-console.log(Str.uppercase) // ABCDEFGHIJKLMNOPQRSTUVWXYZ
+Arr.shuffle(arr)
 
-console.log(Str.lowercase) // abcdefghijklmnopqrstuvwxyz
+console.log(arr) // [4, 3, 1, 5, 2]
 
-console.log(Str.alphabet) // ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+console.log(Arr.create(5)) // [0, 1, 2, 3, 4]
 
-// url safe string
-console.log(Str.url) // 0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz
+console.log(Arr.create(5, 10)) // [10, 11, 12, 13, 14]
 
-// pad / padLeft
-console.log(Str.pad('7', 3, '0')) // 007
-console.log(Str.padLeft('7', 3, '0')) // 007
-
-// padRight
-console.log(Str.padRight('1', 4, '0')) // 1000
+console.log(Arr.create(5, i => i + 10)) // [10, 11, 12, 13, 14]
 ```
 
 ### Hash
@@ -121,9 +115,39 @@ console.log(random.digit(8)) // 58441778
 console.log(random.array(['a', 'b', 'c'])) // c
 ```
 
+### Str
+
+digit, uppercase, lowercase, alphabet, url safe string.
+pad, padLeft, padRight.
+
+```js
+import { Str } from 'suni'
+
+console.log(Str.digit) // 0123456789
+
+console.log(Str.uppercase) // ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+console.log(Str.lowercase) // abcdefghijklmnopqrstuvwxyz
+
+console.log(Str.alphabet) // ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+
+// url safe string
+console.log(Str.url) // 0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz
+
+// pad / padLeft
+console.log(Str.pad('7', 3, '0')) // 007
+console.log(Str.padLeft('7', 3, '0')) // 007
+
+// padRight
+console.log(Str.padRight('1', 4, '0')) // 1000
+
+// replaceAll
+Str.replaceAll('rEplacEAll', 'E', 'e') // replaceAll
+```
+
 ### Wrandom
 
-Produce a random based on weights.
+Produce a random array item based on weights.
 
 ```js
 import { Wrandom } from 'suni'
@@ -159,26 +183,6 @@ const obj = {
 }
 
 console.log(Wrandom(obj)) // random key of obj
-```
-
-### Arr
-
-shuffle, create
-
-```js
-import { Arr } from 'suni'
-
-const arr = [1, 2, 3, 4, 5]
-
-Arr.shuffle(arr)
-
-console.log(arr) // [4, 3, 1, 5, 2]
-
-console.log(Arr.create(5)) // [0, 1, 2, 3, 4]
-
-console.log(Arr.create(5, 10)) // [10, 11, 12, 13, 14]
-
-console.log(Arr.create(5, i => i + 10)) // [10, 11, 12, 13, 14]
 ```
 
 ## License
