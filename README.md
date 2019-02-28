@@ -31,7 +31,7 @@ npm install suni
 shuffle, create
 
 ```js
-import { Arr } from 'suni'
+const { Arr } = require('suni')
 
 const arr = [1, 2, 3, 4, 5]
 
@@ -51,7 +51,7 @@ console.log(Arr.create(5, i => i + 10)) // [10, 11, 12, 13, 14]
 sum, md5
 
 ```js
-import { Hash } from 'suni'
+const { Hash } = require('suni')
 
 console.log(Hash.sum('')) // bba68bf6
 
@@ -72,12 +72,29 @@ const hash = Hash.md5('value', null, true)
 const hash = Hash.md5('value', 'key', true)
 ```
 
+### Obj
+
+filter.
+
+```js
+const { Obj } = require('suni')
+
+const obj = {
+  foo: true,
+  bar: false
+}
+
+const newObject = Obj.filter(obj, (key, value) => value === true) // {foo: true}
+
+const newObject2 = Obj.filter(obj, ['bar']) // {bar: false}
+```
+
 ### Random
 
 Pseudorandom generator: number / string / array item .
 
 ```js
-import { Random } from 'suni'
+const { Random } = require('suni')
 
 // set `unique` to `true`, random will be consecutively unique.
 const random = new Random({
@@ -119,9 +136,10 @@ console.log(random.array(['a', 'b', 'c'])) // c
 
 digit, uppercase, lowercase, alphabet, url safe string.
 pad, padLeft, padRight.
+replaceAll.
 
 ```js
-import { Str } from 'suni'
+const { Str } = require('suni')
 
 console.log(Str.digit) // 0123456789
 
@@ -150,7 +168,7 @@ Str.replaceAll('rEplacEAll', 'E', 'e') // replaceAll
 Produce a random array item based on weights.
 
 ```js
-import { Wrandom } from 'suni'
+const { Wrandom } = require('suni')
 
 const weights = [0.2, 0.5, 0.3]
 console.log(Wrandom(weights)) // random index of weights

@@ -1,3 +1,3 @@
 export interface EmptyObject {
-  [key: string]: number | string
+  [key: string]: any
 }
