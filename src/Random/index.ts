@@ -2,8 +2,8 @@
  * Fork: [cb87fc3](https://github.com/sindresorhus/park-miller/blob/master/index.js)
  */
 
-import { EmptyObject } from '../interfaces/common'
-import { Option } from '../interfaces/Random'
+import { EmptyObject } from '../../interfaces/common'
+import { Option } from '../../interfaces/Random'
 import Str from '../Str'
 
 const MAX_INT32: number = 2147483647
