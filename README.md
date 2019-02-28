@@ -77,6 +77,7 @@ const hash = Hash.md5('value', 'key', true)
 - **filter**: filter object keys and values into a new object.
 - **map**: map object keys and values into a new object.
 - **get**: safely get a dot-notated path within a nested object.
+- **set**: safely writing deep Object values.
 
 ```js
 const { Obj } = require('suni')
@@ -112,11 +113,19 @@ console.log(Obj.get(obj2, 'a.b.c.f')) // undefined
 // optional third parameter for default if the full key in path is missing
 console.log(Obj.get(obj2, 'a.b.c.f', 'foo')) // 'foo'
 
-// or if the key exists but the value is undefined
-console.log(Obj.get(obj2, 'a.b.c.d', 'foo')) // 'foo'
+let foo = { a: 1, b: 2 }
 
-// Non-truthy defined values are still returned if they exist at the full keypath
-console.log(Obj.get(obj2, 'a.b.c.e', 'foo')) // null
+// or ~> Obj.set(foo, ['d', 'e', 'f'], 'hello')
+Obj.set(foo, 'd.e.f', 'hello')
+
+console.log(foo) // { a:1, b:2, d:{ e:{ f:'hello' } } }
+
+let bar = {}
+
+Obj.set(bar, 'a.0.b.0', 1)
+Obj.set(bar, 'a.0.b.1', 2)
+
+console.log(bar) // { a: [{ b: [1, 2] }] }
 ```
 
 ### Random

@@ -1,7 +1,7 @@
 import { Obj } from '../src'
 import { EmptyObject } from '../interfaces/common'
 
-const { filter, get, map } = Obj
+const { filter, get, map, set } = Obj
 
 describe('Object', () => {
   /**
@@ -73,6 +73,75 @@ describe('Object', () => {
     check('one', undefined)
     check('one', 'foo', 'foo')
     obj = backupObj
+  })
+
+  /**
+   * Fork: [0cbf2c6](https://github.com/lukeed/dset/blob/master/test/index.js)
+   */
+  it('set', () => {
+    let foo: EmptyObject = { a: 1, b: 2 }
+    let out = set(foo, 'c', 3) // add c
+    expect(out).toEqual(undefined)
+    expect(foo).toEqual({ a: 1, b: 2, c: 3 })
+
+    foo = {}
+    set(foo, 'a.b.c', 999) // add deep
+    expect(foo).toEqual({ a: { b: { c: 999 } } })
+
+    foo = {}
+    set(foo, ['a', 'b', 'c'], 123) // change via array
+    expect(foo).toEqual({ a: { b: { c: 123 } } })
+
+    foo = { a: 1 }
+    set(foo, 'e.0.0', 2) // create arrays instead of objects
+    expect(foo.e[0][0]).toBe(2)
+    expect(foo).toEqual({ a: 1, e: [[2]] })
+    expect(Array.isArray(foo.e)).toBeTruthy()
+
+    foo = { a: { b: { c: 123 } } }
+    set(foo, 'a.b.x.y', 456) // preserve existing structure
+    expect(foo).toEqual({ a: { b: { c: 123, x: { y: 456 } } } })
+
+    foo = { a: { b: 123 } }
+    set(foo, 'a.b.c', 'hello') // preserve non-object value, won't alter
+    expect(foo.a.b).toEqual(123)
+    expect(foo).toEqual({ a: { b: 123 } })
+
+    foo = { a: { b: { c: 123, d: { e: 5 } } } }
+    set(foo, 'a.b.d.z', [1, 2, 3, 4]) // preserve object tree, with array value
+    expect(foo.a.b.d).toEqual({ e: 5, z: [1, 2, 3, 4] })
+
+    foo = { b: 123 }
+    expect(set(foo, 'b.c.d.e', 123)).toBeUndefined()
+    expect(foo.b).toBe(123)
+
+    foo = { b: 0 }
+    expect(set(foo, 'b.a.s.d', 123)).toBeUndefined()
+    expect(foo).toEqual({ b: 0 })
+
+    foo = {}
+    set(foo, ['x', 'y', 'z'], 123)
+    expect(foo).toEqual({ x: { y: { z: 123 } } })
+
+    foo = {}
+    set(foo, ['x', '0', 'z'], 123)
+    expect(foo).toEqual({ x: [{ z: 123 }] })
+    expect(Array.isArray(foo.x)).toBeTruthy()
+
+    foo = {}
+    set(foo, ['x', '1', 'z'], 123)
+    expect(foo).toEqual({ x: [, { z: 123 }] })
+    expect(Array.isArray(foo.x)).toBeTruthy()
+
+    foo = {}
+    set(foo, ['x', '10.0', 'z'], 123)
+    expect(foo).toEqual({ x: { '10.0': { z: 123 } } })
+    expect(Array.isArray(foo.x)).toBeFalsy()
+
+    foo = {}
+    set(foo, ['x', '10.2', 'z'], 123)
+    expect(foo).toEqual({ x: { '10.2': { z: 123 } } })
+    expect(Array.isArray(foo.x)).toBeFalsy()
   })
 
   /**
