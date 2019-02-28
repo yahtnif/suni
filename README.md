@@ -74,7 +74,7 @@ const hash = Hash.md5('value', 'key', true)
 
 ### Obj
 
-filter.
+filter, map.
 
 ```js
 const { Obj } = require('suni')
@@ -84,9 +84,12 @@ const obj = {
   bar: false
 }
 
-const newObject = Obj.filter(obj, (key, value) => value === true) // {foo: true}
+const newObject = Obj.filter(obj, (key, value) => value === true) // { foo: true }
 
-const newObject2 = Obj.filter(obj, ['bar']) // {bar: false}
+const newObject2 = Obj.filter(obj, ['bar']) // { bar: false }
+
+const newObject3 = Obj.map(obj, (key, value) => [key, !value])
+// { foo: false, bar: true }
 ```
 
 ### Random
