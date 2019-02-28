@@ -53,17 +53,17 @@ sum, md5
 ```js
 const { Hash } = require('suni')
 
-console.log(Hash.sum('')) // bba68bf6
+console.log(Hash.sum('')) // 'bba68bf6'
 
-console.log(Hash.sum('string')) // ed36c8f2
+console.log(Hash.sum('string')) // 'ed36c8f2'
 
-console.log(Hash.sum({ a: {}, b: {} })) // 3718c6e8
+console.log(Hash.sum({ a: {}, b: {} })) // '3718c6e8'
 
 // Calculate the (hex-encoded) MD5 hash of a given string value:
-const hash = Hash.md5('value') // "2063c1608d6e0baf80249c42e2be5804"
+const hash = Hash.md5('value') // '2063c1608d6e0baf80249c42e2be5804'
 
 // Calculate the (hex-encoded) HMAC-MD5 hash of a given string value and key:
-const hash = Hash.md5('value', 'key') // "01433efd5f16327ea4b31144572c67f6"
+const hash = Hash.md5('value', 'key') // '01433efd5f16327ea4b31144572c67f6'
 
 // Calculate the raw MD5 hash of a given string value:
 const hash = Hash.md5('value', null, true)
@@ -74,7 +74,9 @@ const hash = Hash.md5('value', 'key', true)
 
 ### Obj
 
-filter, map.
+- **filter**: filter object keys and values into a new object.
+- **map**: map object keys and values into a new object.
+- **get**: safely get a dot-notated path within a nested object.
 
 ```js
 const { Obj } = require('suni')
@@ -90,6 +92,31 @@ const newObject2 = Obj.filter(obj, ['bar']) // { bar: false }
 
 const newObject3 = Obj.map(obj, (key, value) => [key, !value])
 // { foo: false, bar: true }
+
+const obj2 = {
+  a: {
+    b: {
+      c: 1,
+      d: undefined,
+      e: null
+    }
+  }
+}
+
+// use string dot notation for keys
+console.log(Obj.get(obj2, 'a.b.c')) // 1
+
+// returns undefined if the full key path does not exist and no default is specified
+console.log(Obj.get(obj2, 'a.b.c.f')) // undefined
+
+// optional third parameter for default if the full key in path is missing
+console.log(Obj.get(obj2, 'a.b.c.f', 'foo')) // 'foo'
+
+// or if the key exists but the value is undefined
+console.log(Obj.get(obj2, 'a.b.c.d', 'foo')) // 'foo'
+
+// Non-truthy defined values are still returned if they exist at the full keypath
+console.log(Obj.get(obj2, 'a.b.c.e', 'foo')) // null
 ```
 
 ### Random
@@ -106,7 +133,7 @@ const random = new Random({
 })
 
 // generate a url safe string
-console.log(random.string()) // Mo7Lp23PNkW-J_jwzzTH2hEg2XuQSE3
+console.log(random.string()) // 'Mo7Lp23PNkW-J_jwzzTH2hEg2XuQSE3'
 
 console.log(random.int()) // 141279642
 
@@ -122,17 +149,17 @@ console.log(random.float(100)) // 947894369.301629
 
 console.log(random.float(1, 100)) // 57.521107099038645
 
-console.log(random.lowercase()) // nebsfcpkqrszwka
+console.log(random.lowercase()) // 'nebsfcpkqrszwka'
 
-console.log(random.lowercase(8)) // xgwjbvwf
+console.log(random.lowercase(8)) // 'xgwjbvwf'
 
-console.log(random.uppercase(8)) // EBEZNDYK
+console.log(random.uppercase(8)) // 'EBEZNDYK'
 
-console.log(random.alphabet(8)) // IcFqJKIZ
+console.log(random.alphabet(8)) // 'IcFqJKIZ'
 
 console.log(random.digit(8)) // 58441778
 
-console.log(random.array(['a', 'b', 'c'])) // c
+console.log(random.array(['a', 'b', 'c'])) // 'c'
 ```
 
 ### Str
@@ -144,26 +171,26 @@ replaceAll.
 ```js
 const { Str } = require('suni')
 
-console.log(Str.digit) // 0123456789
+console.log(Str.digit) // '0123456789'
 
-console.log(Str.uppercase) // ABCDEFGHIJKLMNOPQRSTUVWXYZ
+console.log(Str.uppercase) // 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-console.log(Str.lowercase) // abcdefghijklmnopqrstuvwxyz
+console.log(Str.lowercase) // 'abcdefghijklmnopqrstuvwxyz'
 
-console.log(Str.alphabet) // ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+console.log(Str.alphabet) // 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
 // url safe string
-console.log(Str.url) // 0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz
+console.log(Str.url) // '0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz'
 
 // pad / padLeft
-console.log(Str.pad('7', 3, '0')) // 007
-console.log(Str.padLeft('7', 3, '0')) // 007
+console.log(Str.pad('7', 3, '0')) // '007'
+console.log(Str.padLeft('7', 3, '0')) // '007'
 
 // padRight
-console.log(Str.padRight('1', 4, '0')) // 1000
+console.log(Str.padRight('1', 4, '0')) // '1000'
 
 // replaceAll
-Str.replaceAll('rEplacEAll', 'E', 'e') // replaceAll
+Str.replaceAll('rEplacEAll', 'E', 'e') // 'replaceAll'
 ```
 
 ### Wrandom
