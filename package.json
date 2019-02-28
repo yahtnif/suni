@@ -3,9 +3,9 @@
   "description": "Awesome.",
   "author": "Yahtnif <yahtnif@gmail.com>",
   "version": "0.4.2",
-  "main": "dist/suni.js",
-  "module": "dist/suni.es.js",
-  "jsnext:main": "dist/suni.es.js",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
   "typings": "dist/src/index.d.ts",
   "repository": "yahtnif/suni",
   "homepage": "https://github.com/yahtnif/suni",
@@ -35,7 +35,7 @@
   "size-limit": [
     {
       "limit": "5 KB",
-      "path": "dist/suni.js"
+      "path": "dist/index.js"
     }
   ],
   "prettier": {
