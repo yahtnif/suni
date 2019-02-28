@@ -11,6 +11,8 @@
 - [Usage](#usage)
   - [Arr](#arr)
   - [Hash](#hash)
+  - [Is](#is)
+  - [Obj](#obj)
   - [Random](#random)
   - [Str](#str)
   - [Wrandom](#wrandom)
@@ -39,11 +41,11 @@ Arr.shuffle(arr)
 
 console.log(arr) // [4, 3, 1, 5, 2]
 
-console.log(Arr.create(5)) // [0, 1, 2, 3, 4]
+Arr.create(5) // [0, 1, 2, 3, 4]
 
-console.log(Arr.create(5, 10)) // [10, 11, 12, 13, 14]
+Arr.create(5, 10) // [10, 11, 12, 13, 14]
 
-console.log(Arr.create(5, i => i + 10)) // [10, 11, 12, 13, 14]
+Arr.create(5, i => i + 10) // [10, 11, 12, 13, 14]
 ```
 
 ### Hash
@@ -53,23 +55,53 @@ sum, md5
 ```js
 const { Hash } = require('suni')
 
-console.log(Hash.sum('')) // 'bba68bf6'
+Hash.sum('') // 'bba68bf6'
 
-console.log(Hash.sum('string')) // 'ed36c8f2'
+Hash.sum('string') // 'ed36c8f2'
 
-console.log(Hash.sum({ a: {}, b: {} })) // '3718c6e8'
+Hash.sum({ a: {}, b: {} }) // '3718c6e8'
 
 // Calculate the (hex-encoded) MD5 hash of a given string value:
-const hash = Hash.md5('value') // '2063c1608d6e0baf80249c42e2be5804'
+Hash.md5('value') // '2063c1608d6e0baf80249c42e2be5804'
 
 // Calculate the (hex-encoded) HMAC-MD5 hash of a given string value and key:
-const hash = Hash.md5('value', 'key') // '01433efd5f16327ea4b31144572c67f6'
+Hash.md5('value', 'key') // '01433efd5f16327ea4b31144572c67f6'
 
 // Calculate the raw MD5 hash of a given string value:
-const hash = Hash.md5('value', null, true)
+Hash.md5('value', null, true)
 
 // Calculate the raw HMAC-MD5 hash of a given string value and key:
-const hash = Hash.md5('value', 'key', true)
+Hash.md5('value', 'key', true)
+```
+
+### Is
+
+empty
+
+```js
+const { Is } = require('suni')
+
+Is.empty([]) // true
+Is.empty({}) // true
+Is.empty('') // true
+Is.empty(null) // true
+Is.empty(undefined) // true
+Is.empty(new Map()) // true
+Is.empty(new Set()) // true
+Is.empty(new Error()) // true
+
+Is.empty(true) // false
+Is.empty(false) // false
+Is.empty(['a', 'b']) // false
+Is.empty({ a: 'b' }) // false
+Is.empty('string') // false
+Is.empty(0) // false
+Is.empty(42) // false
+Is.empty(function() {}) // false
+Is.empty(function(a, b) {}) // false
+Is.empty(new Map([['key', 'value']])) // false
+Is.empty(new Set([1])) // false
+Is.empty(new Error('fail')) // false
 ```
 
 ### Obj
@@ -87,12 +119,11 @@ const obj = {
   bar: false
 }
 
-const newObject = Obj.filter(obj, (key, value) => value === true) // { foo: true }
+Obj.filter(obj, (key, value) => value === true) // { foo: true }
 
-const newObject2 = Obj.filter(obj, ['bar']) // { bar: false }
+Obj.filter(obj, ['bar']) // { bar: false }
 
-const newObject3 = Obj.map(obj, (key, value) => [key, !value])
-// { foo: false, bar: true }
+Obj.map(obj, (key, value) => [key, !value]) // { foo: false, bar: true }
 
 const obj2 = {
   a: {
@@ -105,13 +136,13 @@ const obj2 = {
 }
 
 // use string dot notation for keys
-console.log(Obj.get(obj2, 'a.b.c')) // 1
+Obj.get(obj2, 'a.b.c') // 1
 
 // returns undefined if the full key path does not exist and no default is specified
-console.log(Obj.get(obj2, 'a.b.c.f')) // undefined
+Obj.get(obj2, 'a.b.c.f') // undefined
 
 // optional third parameter for default if the full key in path is missing
-console.log(Obj.get(obj2, 'a.b.c.f', 'foo')) // 'foo'
+Obj.get(obj2, 'a.b.c.f', 'foo') // 'foo'
 
 let foo = { a: 1, b: 2 }
 
@@ -142,33 +173,33 @@ const random = new Random({
 })
 
 // generate a url safe string
-console.log(random.string()) // 'Mo7Lp23PNkW-J_jwzzTH2hEg2XuQSE3'
+random.string() // 'Mo7Lp23PNkW-J_jwzzTH2hEg2XuQSE3'
 
-console.log(random.int()) // 141279642
+random.int() // 141279642
 
 // 100 ~ 2147483647
-console.log(random.int(100)) // 1517513188
+random.int(100) // 1517513188
 
 // 1 ~ 100
-console.log(random.int(1, 100)) // 62
+random.int(1, 100) // 62
 
-console.log(random.float()) // 0.4130089482413688
+random.float() // 0.4130089482413688
 
-console.log(random.float(100)) // 947894369.301629
+random.float(100) // 947894369.301629
 
-console.log(random.float(1, 100)) // 57.521107099038645
+random.float(1, 100) // 57.521107099038645
 
-console.log(random.lowercase()) // 'nebsfcpkqrszwka'
+random.lowercase() // 'nebsfcpkqrszwka'
 
-console.log(random.lowercase(8)) // 'xgwjbvwf'
+random.lowercase(8) // 'xgwjbvwf'
 
-console.log(random.uppercase(8)) // 'EBEZNDYK'
+random.uppercase(8) // 'EBEZNDYK'
 
-console.log(random.alphabet(8)) // 'IcFqJKIZ'
+random.alphabet(8) // 'IcFqJKIZ'
 
-console.log(random.digit(8)) // 58441778
+random.digit(8) // 58441778
 
-console.log(random.array(['a', 'b', 'c'])) // 'c'
+random.array(['a', 'b', 'c']) // 'c'
 ```
 
 ### Str
@@ -180,23 +211,23 @@ replaceAll.
 ```js
 const { Str } = require('suni')
 
-console.log(Str.digit) // '0123456789'
+Str.digit // '0123456789'
 
-console.log(Str.uppercase) // 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+Str.uppercase // 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-console.log(Str.lowercase) // 'abcdefghijklmnopqrstuvwxyz'
+Str.lowercase // 'abcdefghijklmnopqrstuvwxyz'
 
-console.log(Str.alphabet) // 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+Str.alphabet // 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
 // url safe string
-console.log(Str.url) // '0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz'
+Str.url // '0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz'
 
 // pad / padLeft
-console.log(Str.pad('7', 3, '0')) // '007'
-console.log(Str.padLeft('7', 3, '0')) // '007'
+Str.pad('7', 3, '0') // '007'
+Str.padLeft('7', 3, '0') // '007'
 
 // padRight
-console.log(Str.padRight('1', 4, '0')) // '1000'
+Str.padRight('1', 4, '0') // '1000'
 
 // replaceAll
 Str.replaceAll('rEplacEAll', 'E', 'e') // 'replaceAll'
@@ -210,10 +241,10 @@ Produce a random array item based on weights.
 const { Wrandom } = require('suni')
 
 const weights = [0.2, 0.5, 0.3]
-console.log(Wrandom(weights)) // random index of weights
+Wrandom(weights) // random index of weights
 
 const weightsNotAddTo1 = [0.2, 0.3] // auto reweight to [0.4, 0.6]
-console.log(Wrandom(weightsNotAddTo1)) // random index of weights
+Wrandom(weightsNotAddTo1) // random index of weights
 
 const items = [
   {
@@ -230,8 +261,8 @@ const items = [
   }
 ]
 
-console.log(Wrandom(items)) // random item of items
-console.log(Wrandom(items, item => item.anyValue)) // random item of items, passing a callback function to get weight
+Wrandom(items) // random item of items
+Wrandom(items, item => item.anyValue) // random item of items, passing a callback function to get weight
 
 const obj = {
   key1: 0.3,
@@ -239,7 +270,7 @@ const obj = {
   key3: 0.2
 }
 
-console.log(Wrandom(obj)) // random key of obj
+Wrandom(obj) // random key of obj
 ```
 
 ## License
