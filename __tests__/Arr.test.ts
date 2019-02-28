@@ -1,6 +1,6 @@
 import { Arr } from '../src'
 
-describe('Array', () => {
+describe('Arr', () => {
   it('shuffle', () => {
     const arr = [1, 2, 3, 4, 5]
 

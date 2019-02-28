@@ -76,7 +76,7 @@ Hash.md5('value', 'key', true)
 
 ### Is
 
-empty
+empty, promise.
 
 ```js
 const { Is } = require('suni')
@@ -102,6 +102,11 @@ Is.empty(function(a, b) {}) // false
 Is.empty(new Map([['key', 'value']])) // false
 Is.empty(new Set([1])) // false
 Is.empty(new Error('fail')) // false
+
+Is.promise({ then:function () {...} }) // true
+Is.promise(null) // false
+Is.promise({}) // false
+Is.promise({ then: true }) // false
 ```
 
 ### Obj

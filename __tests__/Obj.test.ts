@@ -3,7 +3,7 @@ import { EmptyObject } from '../interfaces/common'
 
 const { filter, get, map, set } = Obj
 
-describe('Object', () => {
+describe('Obj', () => {
   /**
    * Fork: [55003e0](https://github.com/developit/dlv/blob/master/test.js)
    */

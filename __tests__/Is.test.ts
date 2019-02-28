@@ -1,8 +1,9 @@
 import { Is } from '../src'
 
 const { empty } = Is
+const isPromise = Is.promise
 
-describe('is-empty', function() {
+describe('Is.empty', function() {
   it('handles arrays', function() {
     expect(empty([])).toBeTruthy()
     expect(empty(['a', 'b'])).toBeFalsy()
@@ -55,5 +56,47 @@ describe('is-empty', function() {
     expect(empty(new Error())).toBeTruthy()
     expect(empty(new Error(''))).toBeTruthy()
     expect(empty(new Error('test'))).toBeFalsy()
+  })
+})
+
+/**
+ * Fork: [ed0eaa4](https://github.com/then/is-promise/blob/master/test.js)
+ */
+
+// This looks similar enough to a promise
+// that promises/A+ says we should treat
+// it as a promise.
+const promise = { then: function() {} }
+
+describe('Is.promise', function() {
+  it('with a promise', function() {
+    expect(isPromise(promise)).toBeTruthy()
+  })
+  it('with null', function() {
+    expect(isPromise(null)).toBeFalsy()
+  })
+  it('with undefined', function() {
+    expect(isPromise(undefined)).toBeFalsy()
+  })
+  it('with a number', function() {
+    expect(isPromise(0)).toBeFalsy()
+    expect(isPromise(-42)).toBeFalsy()
+    expect(isPromise(42)).toBeFalsy()
+  })
+  it('with a string', function() {
+    expect(isPromise('')).toBeFalsy()
+    expect(isPromise('then')).toBeFalsy()
+  })
+  it('with a bool', function() {
+    expect(isPromise(false)).toBeFalsy()
+    expect(isPromise(true)).toBeFalsy()
+  })
+  it('with an object', function() {
+    expect(isPromise({})).toBeFalsy()
+    expect(isPromise({ then: true })).toBeFalsy()
+  })
+  it('with an array', function() {
+    expect(isPromise([])).toBeFalsy()
+    expect(isPromise([true])).toBeFalsy()
   })
 })
