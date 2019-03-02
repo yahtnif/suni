@@ -1,6 +1,6 @@
 {
   "name": "suni",
-  "description": "Awesome.",
+  "description": "Arr, Hash, Is, Obj, Random, Str, Wrandom.",
   "author": "Yahtnif <yahtnif@gmail.com>",
   "version": "0.7.0",
   "main": "dist/index.js",
@@ -11,7 +11,13 @@
   "homepage": "https://github.com/yahtnif/suni",
   "license": "MIT",
   "keywords": [
-    "awesome",
+    "arr",
+    "hash",
+    "is",
+    "obj",
+    "str",
+    "random",
+    "wrandom",
     "suni"
   ],
   "scripts": {
