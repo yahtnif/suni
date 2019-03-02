@@ -84,7 +84,10 @@ Arr.countValues([
 // ]
 
 const packages = ['suni', 'smarkdown', 'suni', 'smarkdown', 'suni', 'randelay']
-Arr.countValues(packages, 'package', 'dependents')
+Arr.countValues(packages, {
+  value: 'package',
+  count: 'dependents'
+})
 
 // [
 //   { package: 'suni', dependents: 3 },
