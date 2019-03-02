@@ -58,6 +58,41 @@ Arr.create(5, 0) // [0, 1, 2, 3, 4]
 Arr.create(5, i => i - 1) // [0, 1, 2, 3, 4]
 ```
 
+#### Arr.countValues
+
+Count the instances of each value in an array, ignoring any non-string values.
+
+```js
+Arr.countValues([
+  'foo',
+  'bar',
+  'Bar',
+  451,
+  'bar',
+  'bar',
+  'baz',
+  'foo',
+  null,
+  undefined
+])
+
+// [
+//   { value: 'bar', count: 3 },
+//   { value: 'foo', count: 2 },
+//   { value: 'Bar', count: 1 },
+//   { value: 'baz', count: 1 },
+// ]
+
+const packages = ['suni', 'smarkdown', 'suni', 'smarkdown', 'suni', 'randelay']
+Arr.countValues(packages, 'package', 'dependents')
+
+// [
+//   { package: 'suni', dependents: 3 },
+//   { package: 'smarkdown', dependents: 2 },
+//   { package: 'randelay', dependents: 1 }
+// ]
+```
+
 ### Hash
 
 ```js
