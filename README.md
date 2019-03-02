@@ -30,17 +30,23 @@ npm install suni
 
 ### Arr
 
-shuffle, create.
-
 ```js
 const { Arr } = require('suni')
+```
 
+#### Arr.shuffle
+
+```js
 const arr = [1, 2, 3, 4, 5]
 
 Arr.shuffle(arr)
 
 console.log(arr) // [4, 3, 1, 5, 2]
+```
 
+#### Arr.create
+
+```js
 // value starting from 1
 Arr.create(5) // [1, 2, 3, 4, 5]
 
@@ -54,17 +60,23 @@ Arr.create(5, i => i - 1) // [0, 1, 2, 3, 4]
 
 ### Hash
 
-sum, md5.
-
 ```js
 const { Hash } = require('suni')
+```
 
+#### Hash.sum
+
+```js
 Hash.sum('') // 'bba68bf6'
 
 Hash.sum('string') // 'ed36c8f2'
 
 Hash.sum({ a: {}, b: {} }) // '3718c6e8'
+```
 
+#### Hash.md5
+
+```js
 // Calculate the (hex-encoded) MD5 hash of a given string value:
 Hash.md5('value') // '2063c1608d6e0baf80249c42e2be5804'
 
@@ -80,11 +92,13 @@ Hash.md5('value', 'key', true)
 
 ### Is
 
-empty, promise.
-
 ```js
 const { Is } = require('suni')
+```
 
+#### Is.empty
+
+```js
 Is.empty([]) // true
 Is.empty({}) // true
 Is.empty('') // true
@@ -106,7 +120,11 @@ Is.empty(function(a, b) {}) // false
 Is.empty(new Map([['key', 'value']])) // false
 Is.empty(new Set([1])) // false
 Is.empty(new Error('fail')) // false
+```
 
+#### Is.promise
+
+```js
 Is.promise({ then:function () {...} }) // true
 Is.promise(null) // false
 Is.promise({}) // false
@@ -115,14 +133,15 @@ Is.promise({ then: true }) // false
 
 ### Obj
 
-- **filter**: filter object keys and values into a new object.
-- **map**: map object keys and values into a new object.
-- **get**: safely get a dot-notated path within a nested object.
-- **set**: safely writing deep Object values.
-
 ```js
 const { Obj } = require('suni')
+```
 
+#### Obj.filter
+
+Filter object keys and values into a new object.
+
+```js
 const obj = {
   foo: true,
   bar: false
@@ -131,10 +150,26 @@ const obj = {
 Obj.filter(obj, (key, value) => value === true) // { foo: true }
 
 Obj.filter(obj, ['bar']) // { bar: false }
+```
 
+#### Obj.map
+
+Map object keys and values into a new object.
+
+```js
+const obj = {
+  foo: true,
+  bar: false
+}
 Obj.map(obj, (key, value) => [key, !value]) // { foo: false, bar: true }
+```
 
-const obj2 = {
+#### Obj.get
+
+Safely get a dot-notated path within a nested object.
+
+```js
+const obj = {
   a: {
     b: {
       c: 1,
@@ -145,14 +180,20 @@ const obj2 = {
 }
 
 // use string dot notation for keys
-Obj.get(obj2, 'a.b.c') // 1
+Obj.get(obj, 'a.b.c') // 1
 
 // returns undefined if the full key path does not exist and no default is specified
-Obj.get(obj2, 'a.b.c.f') // undefined
+Obj.get(obj, 'a.b.c.f') // undefined
 
 // optional third parameter for default if the full key in path is missing
-Obj.get(obj2, 'a.b.c.f', 'foo') // 'foo'
+Obj.get(obj, 'a.b.c.f', 'foo') // 'foo'
+```
 
+#### Obj.set
+
+Safely writing deep Object values.
+
+```js
 let foo = { a: 1, b: 2 }
 
 // or ~> Obj.set(foo, ['d', 'e', 'f'], 'hello')
