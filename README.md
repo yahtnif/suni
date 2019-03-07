@@ -34,16 +34,6 @@ npm install suni
 const { Arr } = require('suni')
 ```
 
-#### Arr.shuffle
-
-```js
-const arr = [1, 2, 3, 4, 5]
-
-Arr.shuffle(arr)
-
-console.log(arr) // [4, 3, 1, 5, 2]
-```
-
 #### Arr.create
 
 ```js
@@ -56,6 +46,24 @@ Arr.create(5, 0) // [0, 1, 2, 3, 4]
 
 // pass a function
 Arr.create(5, i => i - 1) // [0, 1, 2, 3, 4]
+```
+
+#### Arr.shuffle
+
+```js
+const arr = [1, 2, 3, 4, 5]
+
+Arr.shuffle(arr)
+
+console.log(arr) // [4, 3, 1, 5, 2]
+```
+
+#### Arr.unique
+
+```js
+const arr = [1, 2, 3, 2, 1, 'a', 'b', 'a']
+
+Arr.unique(arr) // [1, 2, 3, 'a', 'b']
 ```
 
 #### Arr.countValues

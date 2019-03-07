@@ -51,4 +51,10 @@ describe('Arr', () => {
 
     expect(Arr.shuffle(arr).length).toBe(5)
   })
+
+  it('unique', () => {
+    const arr = [1, 2, 3, 2, 1, 'a', 'b', 'a']
+
+    expect(Arr.unique(arr)).toEqual([1, 2, 3, 'a', 'b'])
+  })
 })
