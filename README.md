@@ -66,12 +66,12 @@ const arr = [1, 2, 3, 2, 1, 'a', 'b', 'a']
 Arr.unique(arr) // [1, 2, 3, 'a', 'b']
 ```
 
-#### Arr.countValues
+#### Arr.count
 
 Count the instances of each value in an array, ignoring any non-string values.
 
 ```js
-Arr.countValues([
+Arr.count([
   'foo',
   'bar',
   'Bar',
@@ -92,7 +92,7 @@ Arr.countValues([
 // ]
 
 const packages = ['suni', 'smarkdown', 'suni', 'smarkdown', 'suni', 'randelay']
-Arr.countValues(packages, {
+Arr.count(packages, {
   value: 'package',
   count: 'dependents'
 })

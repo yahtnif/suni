@@ -32,7 +32,7 @@ describe('Arr', () => {
     ]
 
     for (const item of items) {
-      expect(Arr.countValues(item[0], item[2])).toEqual(item[1])
+      expect(Arr.count(item[0], item[2])).toEqual(item[1])
     }
   })
 

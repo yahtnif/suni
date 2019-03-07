@@ -1,10 +1,10 @@
-import countValues from './countValues'
+import count from './count'
 import create from './create'
 import shuffle from './shuffle'
 import unique from './unique'
 
 const Arr = {
-  countValues,
+  count,
   create,
   shuffle,
   unique
