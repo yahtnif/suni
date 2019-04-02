@@ -9,7 +9,7 @@
   "typings": "dist/src/index.d.ts",
   "repository": "yahtnif/suni",
   "homepage": "https://github.com/yahtnif/suni",
-  "license": "MIT",
+  "license": "996ICU",
   "keywords": [
     "arr",
     "hash",

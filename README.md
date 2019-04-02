@@ -1,5 +1,6 @@
 # Suni
 
+[![996ICU Licence](<https://img.shields.io/badge/license-NPL%20(The%20996%20Prohibited%20License)-blue.svg>)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 [![npm](https://badgen.net/npm/v/suni)](https://www.npmjs.com/package/suni)
 [![gzip size](https://img.badgesize.io/https://cdn.jsdelivr.net/npm/suni/dist/suni.js?compression=gzip)](https://cdn.jsdelivr.net/npm/suni/dist/suni.js)
 [![install size](https://badgen.net/packagephobia/install/suni)](https://packagephobia.now.sh/result?p=suni)
@@ -371,4 +372,4 @@ Wrandom(obj) // random key of obj
 
 ## License
 
-[MIT](./LICENSE)
+[996ICU](./LICENSE)
