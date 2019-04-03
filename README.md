@@ -1,6 +1,6 @@
 <div align="center">
 	<div>
-		<img width="300" height="325" src="https://github.com/yahtnif/static/raw/master/logo/suni.svg?sanitize=true" alt="suni">
+		<img width="300" src="https://github.com/yahtnif/static/raw/master/logo/suni.svg?sanitize=true" alt="suni">
 	</div>
 </div>
 
@@ -376,4 +376,4 @@ Wrandom(obj) // random key of obj
 
 ## License
 
-[996ICU](./LICENSE)
+[Anti 996](./LICENSE)
