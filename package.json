@@ -2,7 +2,7 @@
   "name": "suni",
   "description": "Arr, Hash, Is, Obj, Random, Str, Wrandom.",
   "author": "Yahtnif <yahtnif@gmail.com>",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
