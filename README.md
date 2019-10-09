@@ -71,6 +71,16 @@ const arr = [1, 2, 3, 2, 1, 'a', 'b', 'a']
 Arr.unique(arr) // [1, 2, 3, 'a', 'b']
 ```
 
+#### Arr.chunk
+
+Split array into chunk.
+
+```js
+const arr = [1, 2, 3, 4, 5]
+
+Arr.chunk(arr, 2) // [[1,2], [3,4], [5]]
+```
+
 #### Arr.count
 
 Count the instances of each value in an array, ignoring any non-string values.

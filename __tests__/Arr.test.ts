@@ -1,6 +1,16 @@
 import { Arr } from '../src'
 
 describe('Arr', () => {
+  it('chunk', () => {
+    const array = Arr.create(5)
+    const chunks = Arr.chunk(array, 2)
+
+    expect(chunks.length).toBe(3)
+
+    const groups = chunks.map(v => v.length)
+    expect(groups).toEqual([2, 2, 1])
+  })
+
   /**
    * Fork: [a45515b](https://github.com/zeke/count-array-values/blob/master/test.js)
    */
@@ -47,7 +57,7 @@ describe('Arr', () => {
   })
 
   it('shuffle', () => {
-    const arr = [1, 2, 3, 4, 5]
+    const arr = Arr.create(5)
 
     expect(Arr.shuffle(arr).length).toBe(5)
   })
