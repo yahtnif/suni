@@ -71,14 +71,14 @@ const arr = [1, 2, 3, 2, 1, 'a', 'b', 'a']
 Arr.unique(arr) // [1, 2, 3, 'a', 'b']
 ```
 
-#### Arr.chunk
+#### Arr.chunks
 
-Split array into chunk.
+Split array into chunks.
 
 ```js
 const arr = [1, 2, 3, 4, 5]
 
-Arr.chunk(arr, 2) // [[1,2], [3,4], [5]]
+Arr.chunks(arr, 2) // [[1,2], [3,4], [5]]
 ```
 
 #### Arr.count

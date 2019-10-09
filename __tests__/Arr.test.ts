@@ -1,9 +1,9 @@
 import { Arr } from '../src'
 
 describe('Arr', () => {
-  it('chunk', () => {
+  it('chunks', () => {
     const array = Arr.create(5)
-    const chunks = Arr.chunk(array, 2)
+    const chunks = Arr.chunks(array, 2)
 
     expect(chunks.length).toBe(3)
 
